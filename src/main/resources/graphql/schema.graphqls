@@ -1,0 +1,56 @@
+type Mutation{
+createStdClass(stdClassInput:StdClassInput):StdClass
+createAdress(adressInput:AdressInput):Adress
+createStudentClass(stdRoll:Int,name:String,gender:String,stdClassId:ID, adressId:ID):Student
+createParentChildClass(classCode:String,stdClass:String,addCode:String,address:String,stdRoll:Int,name:String,gender:String):Student
+
+}
+
+type Query{
+
+allStdClass:[StdClass]
+allAdress:[Adress]
+getAllStudent:[Student]
+
+
+}
+
+
+type StdClass{
+
+    id:Int
+    classCode:String
+    stdClass:String
+
+
+}
+
+type Adress{
+
+    id:Int
+    addCode:String
+    address:String
+
+
+}
+type Student{
+
+    id:Int
+    stdRoll:Int
+    name:String
+    gender:String
+    stdclass:StdClass
+    adress:Adress
+
+
+}
+
+input StdClassInput{
+   classCode:String
+   stdClass:String
+}
+
+input AdressInput{
+    addCode:String
+    address:String
+}
